@@ -1,7 +1,7 @@
 #include "../include/matriz.hpp"
 #include <iostream>
 
-Matriz::Matriz(std::vector<std::vector<float>> matriz_saida) : matriz_(matriz_saida) {
+Matriz::Matriz(std::vector<std::vector<float>> nova_matriz) : matriz_(nova_matriz) {
 
 }
 
@@ -12,4 +12,8 @@ void Matriz::imprimir() const {
         }
         std::cout << std::endl;
     }
+}
+
+float Matriz::det() {
+    return 0;
 }

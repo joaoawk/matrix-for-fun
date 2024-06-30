@@ -3,14 +3,16 @@
 #include <vector>
 
 class Matriz {
-    
+    private:
+
     public: 
     std::vector<std::vector<float>> matriz_;
 
-    Matriz(std::vector<std::vector<float>> matriz_saida);
+    Matriz(std::vector<std::vector<float>> nova_matriz);
 
     void imprimir() const;
 
+    float det();
 
 };
 
