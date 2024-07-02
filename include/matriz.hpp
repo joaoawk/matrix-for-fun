@@ -10,6 +10,10 @@ class Matriz {
         int coluna
     );
 
+    int maiorColuna();
+
+    void retangularizarMatriz();
+
     bool matrizQuadrada(std::vector<std::vector<float>> nova_matriz);
 
     float determinanteRecursiva(std::vector<std::vector<float>> nova_matriz);

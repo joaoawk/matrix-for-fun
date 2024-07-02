@@ -15,6 +15,31 @@ std::vector<std::vector<float>> Matriz::submatrizLinhaColuna(
         return nova_matriz;
     }
 
+int Matriz::maiorColuna() {
+    int maior = matriz_[0].size();
+    for (std::vector<float> vetor_linha : matriz_) {
+        if (vetor_linha.size() > maior) {
+            maior = vetor_linha.size();
+        }
+    }
+    return maior;
+}
+
+void Matriz::retangularizarMatriz() {
+    std::vector<std::vector<float>> matrizRetangularizada(matriz_.size(), std::vector<float>(maiorColuna()));
+    int indiceLinha = 0;
+    int indiceColuna = 0;
+    for (std::vector<float> vetor_linha : matriz_) {
+        for (float elemento_coluna : vetor_linha) {
+            matrizRetangularizada[indiceLinha][indiceColuna] = elemento_coluna;
+            indiceColuna++;
+        }
+        indiceColuna = 0;
+        indiceLinha++;
+    }
+    matriz_ = matrizRetangularizada;
+}
+
 bool Matriz::matrizQuadrada(std::vector<std::vector<float>> nova_matriz) {
     bool ehQuadrada = true;
     for (std::vector<float> vetor_linha : nova_matriz) {
@@ -41,7 +66,7 @@ float Matriz::determinanteRecursiva(std::vector<std::vector<float>> nova_matriz)
 }
 
 Matriz::Matriz(std::vector<std::vector<float>> nova_matriz) : matriz_(nova_matriz) {
-
+    retangularizarMatriz();
 }
 
 void Matriz::imprimir() const {
