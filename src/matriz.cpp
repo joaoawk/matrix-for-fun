@@ -3,16 +3,16 @@
 #include <cmath>
 
 std::vector<std::vector<float>> Matriz::submatrizLinhaColuna(
-            std::vector<std::vector<float>> nova_matriz,
+            std::vector<std::vector<float>> matriz_reduzida,
             int linha,
             int coluna
         ) {
          
-        nova_matriz.erase(nova_matriz.begin() + linha);
-        for (std::vector<float> &vetor_linha : nova_matriz) {
+        matriz_reduzida.erase(matriz_reduzida.begin() + linha);
+        for (std::vector<float> &vetor_linha : matriz_reduzida) {
             vetor_linha.erase(vetor_linha.begin() + coluna);
         }
-        return nova_matriz;
+        return matriz_reduzida;
     }
 
 int Matriz::maiorColuna() {
@@ -70,8 +70,8 @@ Matriz::Matriz(std::vector<std::vector<float>> nova_matriz) : matriz_(nova_matri
 }
 
 void Matriz::imprimir() const {
-    for (std::vector<float> linha : matriz_) {
-        for (float coluna : linha) {
+    for (std::vector<float> vetor_linha : matriz_) {
+        for (float coluna : vetor_linha) {
             std::cout << coluna << " ";
         }
         std::cout << std::endl;
