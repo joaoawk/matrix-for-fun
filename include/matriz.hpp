@@ -4,19 +4,9 @@
 
 class Matriz {
     private:
-    std::vector<std::vector<float>> submatrizLinhaColuna(
-        std::vector<std::vector<float>> nova_matriz,
-        int linha,
-        int coluna
-    );
-
-    int maiorColuna();
+    int maiorColuna() const;
 
     void retangularizarMatriz();
-
-    bool matrizQuadrada();
-
-    float determinanteRecursiva(std::vector<std::vector<float>> nova_matriz);
 
     public:
 
@@ -24,7 +14,11 @@ class Matriz {
 
     Matriz(std::vector<std::vector<float>> nova_matriz);
 
+    Matriz(std::vector<std::vector<float>> matriz_entrada, int linha, int coluna);
+
     void imprimir() const;
+
+    bool matrizQuadrada() const;
 
     float det();
 
