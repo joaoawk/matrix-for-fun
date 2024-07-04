@@ -14,7 +14,7 @@ class Matriz {
 
     void retangularizarMatriz();
 
-    bool matrizQuadrada(std::vector<std::vector<float>> nova_matriz);
+    bool matrizQuadrada();
 
     float determinanteRecursiva(std::vector<std::vector<float>> nova_matriz);
 
