@@ -26,18 +26,10 @@ int Matriz::maiorColuna() {
 }
 
 void Matriz::retangularizarMatriz() {
-    std::vector<std::vector<float>> matrizRetangularizada(matriz_.size(), std::vector<float>(maiorColuna()));
-    int indiceLinha = 0;
-    int indiceColuna = 0;
-    for (std::vector<float> vetor_linha : matriz_) {
-        for (float elemento_coluna : vetor_linha) {
-            matrizRetangularizada[indiceLinha][indiceColuna] = elemento_coluna;
-            indiceColuna++;
-        }
-        indiceColuna = 0;
-        indiceLinha++;
+    int tamanhoDaColuna = maiorColuna();
+    for (std::vector<float> &vetor_linha : matriz_) {
+        vetor_linha.resize(tamanhoDaColuna);
     }
-    matriz_ = matrizRetangularizada;
 }
 
 bool Matriz::matrizQuadrada() {
